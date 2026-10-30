@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Cache TTL em Go · All My Knowledge</title><style>
+:root{color-scheme:light;--paper:#f6f4ed;--ink:#20352e;--muted:#53645c;--line:#d7ded4;--accent:#14664a}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.7 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:920px;margin:auto;padding:28px 30px 50px}.masthead{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;border-bottom:1px solid var(--line);padding-bottom:15px;color:var(--muted);font-size:12px;letter-spacing:.05em}
+h1{font-size:clamp(34px,5vw,54px);line-height:1.12;letter-spacing:-.04em;margin:35px 0 20px}h2{font-size:23px;line-height:1.3;margin:32px 0 12px;letter-spacing:-.02em}
+p{margin:0 0 16px}ul{padding-left:24px;margin:0 0 20px}li+li{margin-top:9px}a{color:var(--accent);text-underline-offset:4px;overflow-wrap:anywhere}code{font:.88em ui-monospace,Consolas,monospace;overflow-wrap:anywhere}
+details{border-top:1px solid var(--line);padding:14px 0}summary{cursor:pointer;font-weight:700}details p,details ul{margin-top:14px}.section-details{margin-top:26px}.section-details>summary{font-size:21px}
+a:focus-visible,summary:focus-visible{outline:3px solid #b35d1d;outline-offset:5px}footer{margin-top:32px;padding-top:16px;border-top:1px solid var(--line);font-size:14px;color:var(--muted)}
+@media(max-width:600px){main{padding:20px}body{font-size:16px}.section-details>summary{font-size:19px}}@media print{body{background:white;font-size:11pt}main{max-width:none;padding:0}h1{font-size:28pt}}
+</style></head><body><main><div class="masthead"><strong>ALL MY KNOWLEDGE</strong><span>ESTUDO DE PROJETO · 27 OUT 2026</span></div><article>
+<h1>Do caso real ao conceito reutilizável</h1>
+<p>Captura de projeto em 2026-10-27, fuso America/Sao_Paulo. <a href="index.html">Abrir versão HTML</a>.</p>
+<h2>Resumo</h2>
+<p>Você transformou um caso da empresa em um serviço pequeno e genérico para estudar e verificar se um agente conseguiria aplicar o conceito em outra codebase. O exemplo mostra um catálogo de metadados com cache TTL e filtros SQL guiados por essas definições. A transferência efetiva para a empresa ainda não foi demonstrada nesta captura.</p>
+<h2>Como lembrar</h2>
+<p>O catálogo é uma ficha de consulta na mesa. Dentro do prazo, a API reutiliza a ficha. Quando o prazo vence, a próxima chamada tenta buscar outra. Se o banco falhar, continua com a anterior, quando existe.</p>
+<ul>
+<li><strong>Conteúdo do cache:</strong> definições de campos e fatores, não os resultados das buscas.</li>
+<li><strong>Carga:</strong> lê <code>attribute_definitions</code> e <code>risk_factors</code> e cria um snapshot com listas e mapas por chave.</li>
+<li><strong>TTL:</strong> um minuto desde a carga bem-sucedida; a atualização é sob demanda.</li>
+<li><strong>Invalidação:</strong> marca a versão como vencida; a próxima chamada tenta recarregar.</li>
+<li><strong>Filtros:</strong> o catálogo valida campos e operadores; os valores seguem separados do SQL. Uma lista permitida controla os nomes de coluna.</li>
+</ul>
+<details class="section-details"><summary>A experiência e o projeto</summary>
+<p><strong>Relato do usuário, em 2026-10-27:</strong> o caso nasceu de um problema da empresa, está sendo implementado e foi generalizado para publicação e aprendizado. O experimento procura avaliar a transferência do conceito por um agente.</p>
+<ul>
+<li><strong>Repositório:</strong> <a href="https://github.com/j-ordep/go-in-memory-ttl-cache-example">j-ordep/go-in-memory-ttl-cache-example</a>.</li>
+<li><strong>Revisão consultada:</strong> <code>dca8e1e9cfd892dc0239e24f42a2113a6b8bb592</code>, na branch <code>main</code> no momento da captura.</li>
+<li><strong>Associação confirmada:</strong> link e propósito fornecidos pelo usuário nesta conversa.</li>
+<li><strong>Contexto em aberto:</strong> problema empresarial específico, prompt de transferência, resultado da implementação, tarefa Jira e PR da empresa.</li>
+<li><strong>Caminho local original e codebase de destino:</strong> não informados. A cópia temporária dos testes não representa o checkout do usuário.</li>
+</ul>
+</details>
+<h2>Para levar à codebase</h2>
+<p><strong>Interpretação do agente:</strong> um exemplo pequeno pode servir como uma especificação concreta de comportamento. É útil explicar quando recarregar, como responder a falhas e quem pode alterar o snapshot. A organização dos arquivos e a infraestrutura podem mudar no projeto de destino.</p>
+<ul>
+<li><strong>Dados antigos:</strong> o fallback não tem limite próprio de idade; decidir se isso atende ao caso real.</li>
+<li><strong>Concorrência:</strong> o mutex permanece adquirido durante a carga. Outros consumidores que chamam <code>Get</code> aguardam a recarga.</li>
+<li><strong>Compartilhamento:</strong> o snapshot precisa ser tratado como somente leitura; essa imutabilidade é uma convenção. Cada processo mantém seu próprio cache e sua invalidação.</li>
+</ul>
+<p>O benefício esperado é facilitar estudo e transferência. Não há ganho de desempenho medido nem confirmação de sucesso na empresa nesta captura.</p>
+<details class="section-details"><summary>Detalhes da verificação</summary>
+<ul>
+<li><strong>Implementação:</strong> README, catálogo, campos, filtros, repository, HTTP e inicialização foram consultados na revisão fixa.</li>
+<li><strong>Testes de filtros:</strong> existem cenários de compilação, rejeição e parametrização; foram lidos.</li>
+<li><strong>Tentativa de execução:</strong> <code>go test -mod=mod ./... -skip &#x27;^TestIntegration&#x27; -v</code>, em cópia temporária, parou na preparação por bloqueio de rede ao baixar <code>pgx/v5</code>. Os cenários não tiveram execução concluída; isso não é aprovação ou reprovação dos testes.</li>
+<li><strong>PostgreSQL:</strong> integração não executada; o repositório não inclui migrations ou dados de preparação.</li>
+<li><strong>Cache em execução:</strong> análise estática. Não foram encontrados testes unitários específicos de TTL/recarga na revisão consultada.</li>
+<li><strong>Empresa e impacto:</strong> implementação de destino e resultados ainda sem evidência consultada.</li>
+</ul>
+</details>
+<h2>Revisão rápida</h2>
+<details><summary>Passou um minuto sem requisições. O cache foi atualizado?</summary><p>Não. O TTL vence, mas a recarga só ocorre quando uma chamada pede o catálogo.</p></details>
+<details><summary>Invalidar consulta o banco imediatamente?</summary><p>Não. <code>Invalidate</code> zera o instante da carga. O próximo <code>Get</code> tenta recarregar e ainda pode usar a versão anterior se a consulta falhar.</p></details>
+<h2>Próximo passo</h2>
+<p>Escolher uma alteração concreta na codebase de destino. Definir o comportamento esperado e conferir primeira carga, leitura dentro do TTL, expiração, invalidação, falha com e sem versão anterior e duas chamadas simultâneas durante uma recarga.</p>
+<p>Perguntas para completar o caso:</p>
+<ul>
+<li>Qual era o problema concreto da empresa?</li>
+<li>Qual parte o agente já aplicou? O que acertou e o que precisou de correção?</li>
+<li>Se o banco falhar por horas, usar o catálogo antigo é aceitável?</li>
+<li>Que comportamento precisa ser preservado e que parte é específica do laboratório?</li>
+</ul>
+<h2>Fontes e aprofundamento</h2>
+<ul>
+<li><a href="https://github.com/j-ordep/go-in-memory-ttl-cache-example/blob/dca8e1e9cfd892dc0239e24f42a2113a6b8bb592/README.md">README do exemplo</a> e <a href="https://github.com/j-ordep/go-in-memory-ttl-cache-example/tree/dca8e1e9cfd892dc0239e24f42a2113a6b8bb592">código na revisão consultada</a>.</li>
+<li><a href="../../conhecimento/cache-ttl-go.md">Catálogo com cache TTL em Go</a>.</li>
+<li><a href="../../conhecimento/filtros-sql-parametrizados.md">Filtros dinâmicos com parâmetros</a>.</li>
+</ul>
+</article><footer><a href="README.md">Ler a fonte em Markdown</a> · <a href="../../README.md">Todos os estudos</a></footer></main></body></html>

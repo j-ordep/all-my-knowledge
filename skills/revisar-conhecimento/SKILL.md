@@ -25,9 +25,9 @@ Use perguntas como “o que aconteceria se esta condição mudasse?” ou “qua
 
 ## Registrar o que foi observado
 
-Ao concluir uma sessão solicitada para esta base, salve uma síntese em `relatorios/revisoes/YYYY-MM-DD-<assunto>.md`, com `tipo: revisao` e os metadados comuns. Se já houver uma sessão nesse arquivo, acrescente um registro identificado pelo horário sem apagar o anterior.
+Ao concluir uma sessão solicitada para esta base, acrescente uma seção de revisão ao `relatorios/<tema>/README.md` correspondente, identificada por data e horário. Se não houver relatório do tema, crie-o com `tipo: revisao` e os metadados comuns. Preserve as sessões anteriores no mesmo documento.
 
-Inclua notas consultadas, perguntas efetivamente respondidas, síntese fiel das respostas do usuário, ajuda oferecida, acertos, lacunas e uma sugestão de prática. Preserve a distinção entre resposta independente, resposta com pista e explicação dada pelo agente.
+Inclua notas consultadas, perguntas efetivamente respondidas, síntese fiel das respostas do usuário, ajuda oferecida, acertos, lacunas e uma sugestão de prática. Preserve a distinção entre resposta independente, resposta com pista e explicação dada pelo agente. Atualize o índice principal quando criar um tema e sincronize seu `index.html` caso exista, usando [Gerar relatório](../gerar-relatorio/SKILL.md).
 
 Para uma lista avulsa de questões ou um pedido de explicação, responda no chat; isso não constitui avaliação do usuário. Se a sessão terminar antes de haver respostas, registre apenas a interrupção quando houver necessidade de salvar o estado.
 

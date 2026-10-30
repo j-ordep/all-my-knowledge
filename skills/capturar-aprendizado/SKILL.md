@@ -11,9 +11,9 @@ Transforme o material fornecido em uma nota que ajude o usuário a recordar e re
 
 Use a conversa, os arquivos, as fontes ou a tarefa indicados pelo usuário. Identifique o aprendizado central e procure notas relacionadas antes de criar uma nova.
 
-- Um conceito reutilizável pertence a `conhecimento/<assunto>/<conceito>.md`.
-- Um problema com contexto e investigação próprios pertence a `experiencias/YYYY-MM-DD-<caso>.md`.
-- Quando ambos forem úteis, registre o caso e vincule o conceito; mantenha a explicação geral em um único lugar.
+- Registre o estudo ou caso em `relatorios/<tema>/README.md`, incluindo contexto, experiência, fontes do projeto e perguntas.
+- Um conceito reutilizável que justifique referência própria pertence a `conhecimento/<conceito>.md`, sem subpastas por assunto. Conceitos específicos do caso podem ficar no próprio relatório.
+- Quando ambos forem úteis, vincule o conceito a partir do relatório e mantenha a explicação geral em um único lugar. Não crie uma nota separada para cada conceito automaticamente.
 
 Os caminhos acima são padrões de destino, não arquivos prontos. Use uma estrutura existente quando ela já atender ao assunto.
 
@@ -29,7 +29,7 @@ Se o usuário mencionar código ou uma tarefa sem indicar sua localização, pro
 
 ## Formato orientador
 
-Use os metadados comuns definidos no AGENTS.md, com `tipo: conceito` ou `tipo: experiencia`. Adapte as seções à utilidade para o caso:
+Use os metadados comuns definidos no AGENTS.md, com `tipo: conceito` na nota reutilizável ou `tipo: relatorio` no estudo. Adapte as seções à utilidade para o caso:
 
 - **Resumo:** duas a cinco frases com a ideia central e quando usá-la.
 - **Contexto:** problema, objetivo e restrições relevantes.
@@ -45,8 +45,8 @@ Para conhecimento baseado apenas na conversa, identifique a fonte como relato do
 
 > Registre o que aprendi ao corrigir esta consulta e relacione com minha nota sobre índices.
 
-Leia a consulta e a nota existente. Acrescente a explicação reutilizável à nota de índices. Crie uma experiência separada apenas se houver uma investigação ou contexto que mereça ser preservado. Ganhos de desempenho precisam de medições; sem elas, registre a justificativa técnica e a verificação pendente.
+Leia a consulta e a nota existente. Acrescente a explicação reutilizável à nota de índices. Preserve a investigação e o contexto no relatório do tema. Ganhos de desempenho precisam de medições; sem elas, registre a justificativa técnica e a verificação pendente.
 
 ## Entrega
 
-Confira os links e se o resumo representa a explicação. Informe os arquivos criados ou atualizados e as lacunas relevantes. Se a solicitação for apenas uma explicação ou proposta, entregue no chat sem registrar como experiência confirmada.
+Confira os links e se o resumo representa a explicação. Atualize o índice principal quando criar um estudo. Se houver `index.html` no tema, sincronize-o com o Markdown usando [Gerar relatório](../gerar-relatorio/SKILL.md). Informe os arquivos alterados e as lacunas relevantes. Se a solicitação for apenas uma explicação ou proposta, entregue no chat sem registrar como experiência confirmada.

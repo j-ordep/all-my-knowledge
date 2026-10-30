@@ -6,11 +6,11 @@ Este projeto reúne as instruções para cuidar da base, as skills que executam 
 
 ## Estudos registrados
 
-| Estudo | Leitura rápida | Aprofundamento |
+| Estudo | Ler Markdown | Abrir HTML |
 | --- | --- | --- |
-| Caso genérico de cache TTL em Go | [Relatório](relatorios/2026-10-27-cache-ttl-go.md) · [HTML](relatorios/2026-10-27-cache-ttl-go.html) | [Cache TTL](conhecimento/go/catalogo-com-cache-ttl.md) · [Filtros SQL](conhecimento/banco-de-dados/filtros-dinamicos-parametrizados.md) · [Experiência](experiencias/2026-10-27-case-generico-cache-go.md) |
+| Caso genérico de cache TTL em Go | [Relatório completo](relatorios/cache-ttl-go/README.md) | [Versão visual](relatorios/cache-ttl-go/index.html) |
 
-As fontes relacionadas estão no [mapa de projetos](perfil/projetos.md).
+A experiência, os dados do projeto e os próximos passos ficam no próprio relatório. Para aprofundar conceitos, consulte [Cache TTL](conhecimento/cache-ttl-go.md) e [Filtros SQL](conhecimento/filtros-sql-parametrizados.md).
 
 ## Comece por aqui
 
@@ -30,7 +30,7 @@ O agente usa os acessos disponíveis na sessão. As skills descrevem o procedime
 
 | Skill | Quando usar | Resultado |
 | --- | --- | --- |
-| [Capturar aprendizado](skills/capturar-aprendizado/SKILL.md) | Depois de estudar, descobrir algo ou resolver um problema | Nota de conceito ou experiência, resumo, exemplos e perguntas |
+| [Capturar aprendizado](skills/capturar-aprendizado/SKILL.md) | Depois de estudar, descobrir algo ou resolver um problema | Relatório do tema com experiência, resumo e perguntas; nota de conceito quando útil |
 | [Revisar semana](skills/revisar-semana/SKILL.md) | Para revisar entregas e aprendizados de um período | Retrospectiva com fontes, contribuição, impacto e links para conhecimento |
 | [Planejar aprendizado](skills/planejar-aprendizado/SKILL.md) | Para decidir o que estudar e por quê | Prioridades relacionadas a objetivos, interesses e lacunas |
 | [Revisar conhecimento](skills/revisar-conhecimento/SKILL.md) | Para praticar o que está na base | Perguntas, exercícios e registro do que foi demonstrado |
@@ -44,12 +44,13 @@ As skills podem ser usadas individualmente. Uma revisão semanal pode alimentar 
 all-my-knowledge/
 ├── AGENTS.md
 ├── README.md
-├── conhecimento/
-│   ├── go/
-│   └── banco-de-dados/
-├── experiencias/
-├── perfil/
 ├── relatorios/
+│   └── cache-ttl-go/
+│       ├── README.md
+│       └── index.html
+├── conhecimento/
+│   ├── cache-ttl-go.md
+│   └── filtros-sql-parametrizados.md
 └── skills/
     ├── capturar-aprendizado/SKILL.md
     ├── revisar-semana/SKILL.md
@@ -58,19 +59,18 @@ all-my-knowledge/
     └── gerar-relatorio/SKILL.md
 ```
 
-As pastas de conteúdo crescem conforme houver material para registrar:
+Há duas áreas de conteúdo:
 
 | Pasta | Conteúdo |
 | --- | --- |
-| `conhecimento/` | Conceitos, explicações e relações entre assuntos |
-| `experiencias/` | Contexto, investigação e solução de casos reais |
-| `perfil/` | Objetivos, interesses confirmados, projetos relacionados e planos de estudo |
-| `relatorios/` | Retrospectivas, registros de revisão e relatórios HTML |
-| `exemplos/` | Exemplos de código que precisem de arquivos próprios |
+| `relatorios/<tema>/` | Um relatório em Markdown e sua apresentação HTML; inclui experiência, fontes, objetivos e próximos passos pertinentes |
+| `conhecimento/` | Referências de conceitos reutilizáveis, sem subpastas por assunto |
+
+Comece pelo relatório: ele deve permitir entender o caso sem navegar por vários arquivos. Só crie notas separadas de conhecimento quando trouxerem benefício de reutilização. Planos e sessões de revisão ficam em seções do tema, com data; uma revisão semanal independente recebe sua própria pasta de relatório. Exemplos com arquivos próprios ficam junto ao tema.
 
 ## Como o conhecimento será registrado
 
-Uma nota começa com um resumo curto. Conforme o assunto, aprofunda o contexto, a explicação, o raciocínio da solução, o código e suas limitações. As fontes permitem voltar à tarefa, ao commit, ao documento ou ao relato que deu origem ao aprendizado.
+O relatório começa com um resumo curto e reúne o contexto, a experiência, a explicação, o raciocínio da solução, o código e suas limitações, conforme forem úteis. As fontes permitem voltar à tarefa, ao commit, ao documento ou ao relato que deu origem ao aprendizado.
 
 Perguntas de revisão ajudam a praticar três coisas: recordar o conceito, explicar uma decisão e aplicar o aprendizado em uma situação diferente. Notas existentes são atualizadas para evitar várias versões da mesma explicação.
 
@@ -91,6 +91,8 @@ Quando o projeto for versionado e enviado ao GitHub, suas notas poderão ser con
 
 Relatórios HTML serão gerados sob demanda a partir das notas e abertos no navegador. A visualização de um arquivo HTML no repositório do GitHub normalmente mostra seu código; hospedá-lo como página é uma configuração adicional.
 
+Cada pasta de tema usa `README.md` como fonte principal e `index.html` como apresentação do mesmo conteúdo. Quando o Markdown mudar, o HTML existente deve ser sincronizado. A versão visual pode recolher detalhes para manter a leitura leve.
+
 Os relatórios terão texto claro, direto e pouco formal, com analogias curtas quando ajudarem a entender. O padrão é ser conciso, com aprofundamento quando eu pedir ou quando for necessário para compreender a conclusão.
 
 ## Uso das skills no agente
@@ -101,7 +103,7 @@ A descoberta nativa de skills locais pelo Codex usa diretórios como `.agents/sk
 
 ## Estado e próximo passo
 
-As diretrizes e as cinco skills estão escritas. A primeira captura usa o repositório público de cache TTL em Go e inclui conceitos, experiência, mapeamento do projeto e relatório Markdown/HTML. A tentativa de testes Go ficou bloqueada no download de dependências; as conclusões técnicas se baseiam na leitura do código.
+As diretrizes e as cinco skills seguem esta organização. A primeira captura usa o repositório público de cache TTL em Go e reúne experiência, dados do projeto e verificação no mesmo relatório, com duas notas de conceitos reutilizáveis. A tentativa de testes Go ficou bloqueada no download de dependências; as conclusões técnicas se baseiam na leitura do código.
 
 O próximo passo desse estudo é completar o contexto do problema e avaliar a transferência para a codebase de destino. A consulta ao Jira, a associação com checkouts originais e a rotina agendada de sexta-feira ainda não foram exercitadas.
 

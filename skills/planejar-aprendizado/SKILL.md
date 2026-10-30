@@ -9,7 +9,7 @@ Ajude o usuário a escolher próximos estudos com motivos claros e uma forma con
 
 ## Entender a direção
 
-Leia o objetivo informado e, se existirem, os arquivos pertinentes em `perfil/`, as retrospectivas recentes e os registros de revisão de conhecimento. Se o objetivo estiver indefinido e impedir a priorização, pergunte qual resultado o usuário deseja alcançar.
+Leia o objetivo informado e os relatórios pertinentes, incluindo retrospectivas e seções de revisão de conhecimento. Se o objetivo estiver indefinido e impedir a priorização, pergunte qual resultado o usuário deseja alcançar.
 
 Considere tempo disponível, prazo e contexto de aplicação quando informados. Sem esses dados, proponha uma sequência de estudos, sem inventar disponibilidade ou compromissos de calendário.
 
@@ -40,9 +40,9 @@ Evite percentuais de domínio ou pontuações calculadas sem método e dados. Pr
 
 ## Registro
 
-Quando o pedido incluir criar ou atualizar o planejamento, grave em `perfil/planos/YYYY-MM-DD-<objetivo>.md`, com `tipo: plano` e os metadados comuns. Inclua objetivo, evidências utilizadas, prioridades, atividades, critérios de conclusão e questões em aberto.
+Quando o pedido incluir criar ou atualizar o planejamento, use uma seção no `relatorios/<tema>/README.md` existente. Para um planejamento independente, crie `relatorios/<objetivo>/README.md`, com `tipo: plano` e os metadados comuns. Inclua objetivo, evidências utilizadas, prioridades, atividades, critérios de conclusão e questões em aberto.
 
-Registre interesses e objetivos confirmados em `perfil/perfil.md` quando necessário, preservando a data e o contexto. Não transforme sugestões de carreira ou hipóteses em preferências permanentes. Se o usuário pedir apenas sugestões, apresente-as no chat.
+Registre interesses e objetivos confirmados no próprio relatório, preservando a data e o contexto. Não transforme sugestões de carreira ou hipóteses em preferências permanentes. Atualize o índice principal quando criar um relatório e sincronize seu `index.html` caso exista, usando [Gerar relatório](../gerar-relatorio/SKILL.md). Se o usuário pedir apenas sugestões, apresente-as no chat.
 
 ## Exemplo de pedido
 

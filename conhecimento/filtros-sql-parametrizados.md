@@ -58,4 +58,4 @@ Análise estática em 2026-10-27, revisão `dca8e1e9cfd892dc0239e24f42a2113a6b8b
 - [Compilação e validação de filtros](https://github.com/j-ordep/go-in-memory-ttl-cache-example/blob/dca8e1e9cfd892dc0239e24f42a2113a6b8bb592/internal/analytics/filter.go).
 - [Construção do escopo e consultas](https://github.com/j-ordep/go-in-memory-ttl-cache-example/blob/dca8e1e9cfd892dc0239e24f42a2113a6b8bb592/internal/analytics/repository.go).
 - [Testes existentes de filtros](https://github.com/j-ordep/go-in-memory-ttl-cache-example/blob/dca8e1e9cfd892dc0239e24f42a2113a6b8bb592/internal/analytics/filter_test.go), lidos, sem execução concluída nesta captura.
-- [Catálogo com cache TTL](../go/catalogo-com-cache-ttl.md).
+- [Catálogo com cache TTL](cache-ttl-go.md).

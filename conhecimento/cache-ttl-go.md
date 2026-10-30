@@ -65,5 +65,5 @@ Verificação em 2026-10-27, revisão `dca8e1e9cfd892dc0239e24f42a2113a6b8bb592`
 - [Catálogo, snapshot, mutex e invalidação](https://github.com/j-ordep/go-in-memory-ttl-cache-example/blob/dca8e1e9cfd892dc0239e24f42a2113a6b8bb592/internal/analytics/catalog.go).
 - [Configuração do TTL](https://github.com/j-ordep/go-in-memory-ttl-cache-example/blob/dca8e1e9cfd892dc0239e24f42a2113a6b8bb592/cmd/api/main.go).
 - [Handler de invalidação](https://github.com/j-ordep/go-in-memory-ttl-cache-example/blob/dca8e1e9cfd892dc0239e24f42a2113a6b8bb592/internal/httpapi/server.go).
-- [Experiência de extrair um caso genérico](../../experiencias/2026-10-27-case-generico-cache-go.md).
-- [Filtros orientados pelo catálogo](../banco-de-dados/filtros-dinamicos-parametrizados.md).
+- [Relatório e experiência do caso genérico](../relatorios/cache-ttl-go/README.md).
+- [Filtros orientados pelo catálogo](filtros-sql-parametrizados.md).

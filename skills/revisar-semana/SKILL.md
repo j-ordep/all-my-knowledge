@@ -15,7 +15,7 @@ Identifique a conta do usuário pelos conectores e pelo contexto disponível. Se
 
 ## Reunir evidências
 
-1. Consulte o mapeamento `perfil/projetos.md`, caso exista, e as referências fornecidas. Use os conectores disponíveis para Jira e GitHub; use Git local para os repositórios relacionados.
+1. Consulte as fontes e associações de projetos nos relatórios existentes e as referências fornecidas. Use os conectores disponíveis para Jira e GitHub; use Git local para os repositórios relacionados.
 2. No Jira, examine tarefas e alterações relevantes no período, contexto e conclusão. Consulte comentários ou histórico quando necessários para entender a contribuição. Diferencie o estado atual do que aconteceu no período.
 3. No GitHub, examine PRs, commits e revisões pertinentes. Registre se a mudança está aberta, integrada ou tem implantação comprovada; um merge não comprova implantação.
 4. Respeite a paginação das ferramentas. Se o acesso ou o volume limitar a consulta, registre fontes consultadas, período coberto e o que ficou incompleto. Não apresente uma amostra como inventário completo.
@@ -28,11 +28,11 @@ Procure primeiro links de desenvolvimento da tarefa, referências explícitas à
 
 Nomes parecidos, branches sem contexto e datas próximas geram candidatos. Se a associação continuar incerta, pergunte qual repositório, caminho, PR ou contexto corresponde à tarefa. Prossiga nas demais tarefas enquanto essa informação estiver pendente.
 
-Quando o usuário confirmar a relação, registre em `perfil/projetos.md` a identificação do projeto, o repositório remoto, o caminho local quando disponível e a data/origem da confirmação. Um projeto Jira pode envolver vários repositórios. Caminhos variam entre máquinas; use remoto, arquivo relativo e commit como referência durável.
+Quando o usuário confirmar a relação, registre na seção de fontes do relatório a identificação do projeto, o repositório remoto, o caminho local quando disponível e a data/origem da confirmação. Um projeto Jira pode envolver vários repositórios. Caminhos variam entre máquinas; use remoto, arquivo relativo e commit como referência durável.
 
 ## Produzir a retrospectiva
 
-Grave em `relatorios/semanais/YYYY-MM-DD-a-YYYY-MM-DD.md`, usando as datas do intervalo consultado. Antes de escrever, procure uma retrospectiva com o mesmo recorte. Atualize-a sem duplicar itens; se os escopos forem diferentes, identifique o projeto no nome.
+Grave em `relatorios/semana-YYYY-MM-DD-a-YYYY-MM-DD/README.md`, usando as datas do intervalo consultado. Antes de escrever, procure uma retrospectiva com o mesmo recorte. Atualize-a sem duplicar itens; se os escopos forem diferentes, identifique o projeto no nome da pasta. Contexto, experiência e fontes ficam nesse relatório.
 
 Use `tipo: retrospectiva`, os metadados comuns e o período exato no corpo. Inclua:
 
@@ -43,7 +43,7 @@ Use `tipo: retrospectiva`, os metadados comuns e o período exato no corpo. Incl
 - **Lacunas:** associações incertas, fontes indisponíveis e perguntas pendentes.
 - **Próximos passos:** poucas ações justificadas pelas evidências.
 
-Para aprendizados que mereçam uma nota própria, use [Capturar aprendizado](../capturar-aprendizado/SKILL.md) e vincule o resultado. Não transforme toda tarefa em uma nota: priorize descobertas, decisões e padrões úteis.
+Para conceitos que mereçam uma referência reutilizável, use [Capturar aprendizado](../capturar-aprendizado/SKILL.md) e vincule o resultado. Não transforme toda tarefa em uma nota: priorize descobertas, decisões e padrões úteis. Atualize o índice principal e sincronize `index.html` caso exista, usando [Gerar relatório](../gerar-relatorio/SKILL.md).
 
 ## Exemplo de pedido
 

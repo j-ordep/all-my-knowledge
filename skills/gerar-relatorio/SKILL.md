@@ -19,13 +19,13 @@ Para uma análise de direção que ainda não exista, use [Planejar aprendizado]
 
 ## Preparar a fonte em Markdown
 
-Use a retrospectiva, o plano ou a nota existente como fonte quando ela já contiver o conteúdo necessário. Para uma síntese nova de várias notas, salve `relatorios/YYYY-MM-DD-<tema>.md`, com `tipo: relatorio`, metadados comuns, resumo e links para as fontes.
+Use `relatorios/<tema>/README.md` como fonte principal. Procure o tema existente antes de criar outro. Para uma síntese nova, crie esse arquivo com `tipo: relatorio`, metadados comuns, resumo e links para as fontes. Inclua nele a experiência, os dados do projeto e o planejamento pertinente; o leitor deve compreender o caso sem abrir vários arquivos.
 
-Acrescente a interpretação nova a essa síntese antes de apresentá-la no HTML. Evite criar uma segunda versão extensa das notas originais. Correções posteriores devem atualizar a fonte em Markdown e o HTML correspondente.
+Acrescente a interpretação nova ao Markdown antes de apresentá-la no HTML. Preserve o mesmo conteúdo, fontes e ressalvas nas duas versões, permitindo recolher detalhes no HTML. Conceitos reutilizáveis podem ser vinculados em `conhecimento/`. Correções posteriores devem atualizar as duas versões; não mantenha sínteses concorrentes em arquivos separados.
 
 ## Produzir o HTML
 
-Salve um `.html` com o mesmo nome-base, ao lado do Markdown utilizado. Prefira um arquivo que abra localmente, com CSS incorporado e fontes do sistema. Use JavaScript apenas para interações que facilitem a leitura, como filtros.
+Salve `index.html` na mesma pasta do `README.md` do tema. Prefira um arquivo que abra localmente, com CSS incorporado e fontes do sistema. Use JavaScript apenas para interações que facilitem a leitura, como filtros. Mantenha no README principal os links diretos para as duas versões.
 
 Adapte a apresentação ao objetivo:
 

@@ -23,15 +23,19 @@ Uma tarefa pode combinar fluxos. Por exemplo, uma revisão semanal pode capturar
 ## Organização e portabilidade
 
 - Markdown é a fonte principal. HTML é uma apresentação derivada, com links para as notas utilizadas.
-- Use `conhecimento/` para conceitos, `experiencias/` para casos reais, `perfil/` para objetivos e planejamento e `relatorios/` para retrospectivas, revisões e HTML.
-- Crie essas pastas conforme houver conteúdo real. Use `exemplos/` somente quando um exemplo precisar de arquivos próprios.
+- Mantenha duas áreas de conteúdo: `relatorios/` e `conhecimento/`.
+- Cada estudo fica em `relatorios/<tema>/README.md`, com contexto, experiência, fontes do projeto, conclusões e próximos passos. Quando houver HTML, use `index.html` na mesma pasta, apresentando o mesmo conteúdo do Markdown.
+- Registre objetivos, interesses confirmados, planos e sessões de revisão no relatório do tema, em seções identificadas por data quando necessário. Não crie pastas separadas de perfil ou experiências.
+- Use `conhecimento/<conceito>.md` apenas para conceitos reutilizáveis que justifiquem uma referência própria. Um conceito específico de um caso pode permanecer no relatório.
+- Crie as pastas conforme houver conteúdo real. Exemplos que precisem de arquivos próprios ficam junto ao relatório do tema.
 - Pesquise títulos, termos relacionados e fontes antes de criar uma nota. Atualize a nota existente quando o aprendizado já estiver representado.
-- Organize por assunto com poucas pastas. Conecte conceitos e experiências por links; evite copiar a mesma explicação para várias notas.
+- Mantenha `conhecimento/` sem subpastas por linguagem ou assunto. Conecte conceitos e relatórios por links; evite copiar a mesma explicação para várias notas.
 - Use nomes de arquivo em minúsculas, sem acentos e com hífens. Nas notas, use títulos com acentuação normal.
-- Use links Markdown relativos com `/` e extensão, por exemplo `[Transações](../conhecimento/banco-de-dados/transacoes.md)`. O exemplo é ilustrativo; links efetivos devem apontar para arquivos existentes.
+- Use links Markdown relativos com `/` e extensão, por exemplo `[Transações](../../conhecimento/transacoes.md)` a partir de um relatório. O exemplo é ilustrativo; links efetivos devem apontar para arquivos existentes.
 - Mantenha o conteúdo essencial legível sem plugins do Obsidian. Prefira blocos de código com linguagem identificada e recursos locais.
 - Use datas `YYYY-MM-DD`. Para períodos, registre início, fim e fuso; o padrão deste projeto é `America/Sao_Paulo`, salvo orientação do usuário.
-- Notas de conteúdo usam metadados YAML: `tipo`, `criado_em`, `atualizado_em` e `tags`. Preencha com dados reais; use `tags: []` quando necessário. Esses metadados não se aplicam ao README, a este arquivo ou ao frontmatter próprio das skills.
+- Notas de conteúdo, incluindo o `README.md` de cada relatório, usam metadados YAML: `tipo`, `criado_em`, `atualizado_em` e `tags`. Preencha com dados reais; use `tags: []` quando necessário. O README principal e este arquivo não usam esses metadados; skills têm frontmatter próprio.
+- Mantenha no README principal um índice com links diretos para o Markdown e o HTML de cada estudo. Atualize o HTML existente quando seu Markdown mudar, preservando conteúdo e fontes equivalentes.
 
 ## Qualidade do conhecimento
 
